@@ -35,11 +35,11 @@ namespace SchoolPractice
         {
             // Update the appropriate properties: NumberOfCredits, Gpa
             int newNumberOfCredits = courseCredits + NumberOfCredits;
-            double currentPoints = this.NumberOfCredits * this.Gpa;
+            double currentPoints = NumberOfCredits * Gpa;
             double totalPoints = currentPoints + (courseCredits * grade);
             double newGpa = totalPoints / newNumberOfCredits;
-            this.Gpa = newGpa;
-            this.NumberOfCredits = newNumberOfCredits;
+            Gpa = newGpa;
+            NumberOfCredits = newNumberOfCredits;
         }
 
         //TODO: Complete the GetGradeLevel method here:
@@ -68,7 +68,7 @@ namespace SchoolPractice
         }
         public override string ToString()
         {
-            return Name + " completed " + NumberOfCredits + " credits with a GPA of " + Gpa;
+            return Name + " (Credits: " + NumberOfCredits + ", GPA: " + Gpa;
         }
 
         // TODO: Add your custom 'ToString' method here. Make sure it returns a well-formatted string rather
