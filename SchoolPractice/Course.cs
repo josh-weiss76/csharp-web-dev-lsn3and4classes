@@ -10,6 +10,8 @@ namespace SchoolPractice
         public List<Student> enrolledStudents { get; set; }
 
 
+
+
         // TODO: Add your custom 'ToString' method here. Make sure it returns a well-formatted string rather than
         //  just the class fields.
 

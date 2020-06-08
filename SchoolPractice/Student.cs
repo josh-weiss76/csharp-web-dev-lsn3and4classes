@@ -9,8 +9,7 @@ namespace SchoolPractice
         public int NumberOfCredits { get; set; }
         public double Gpa { get; set; }
 
-        public Student(string name, int studentId,
-            int numberOfCredits, double gpa)
+        public Student(string name, int studentId, int numberOfCredits, double gpa)
         {
             Name = name;
             StudentId = studentId;
@@ -31,13 +30,26 @@ namespace SchoolPractice
         public void AddGrade(int courseCredits, double grade)
         {
             // Update the appropriate properties: NumberOfCredits, Gpa
+
         }
 
         //TODO: Complete the GetGradeLevel method here:
         public string GetGradeLevel(int credits)
         {
-            // Determine the grade level of the student based on NumberOfCredits
-            return "grade level tbd";
+            if (credits >= 90)
+            {
+                return "Senior";
+            }
+            else if (credits >= 60)
+            {
+                return "Junior";
+            }
+            else if (credits >= 30)
+            {
+                return "Sophomore";
+            }
+            else
+            return "Freshman";
         }
 
         // TODO: Add your custom 'ToString' method here. Make sure it returns a well-formatted string rather
