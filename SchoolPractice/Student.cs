@@ -9,6 +9,10 @@ namespace SchoolPractice
         public int NumberOfCredits { get; set; }
         public double Gpa { get; set; }
 
+        public Student()
+        {
+        }
+
         public Student(string name, int studentId, int numberOfCredits, double gpa)
         {
             Name = name;
@@ -30,7 +34,12 @@ namespace SchoolPractice
         public void AddGrade(int courseCredits, double grade)
         {
             // Update the appropriate properties: NumberOfCredits, Gpa
-
+            int newNumberOfCredits = courseCredits + NumberOfCredits;
+            double currentPoints = this.NumberOfCredits * this.Gpa;
+            double totalPoints = currentPoints + (courseCredits * grade);
+            double newGpa = totalPoints / newNumberOfCredits;
+            this.Gpa = newGpa;
+            this.NumberOfCredits = newNumberOfCredits;
         }
 
         //TODO: Complete the GetGradeLevel method here:
@@ -50,6 +59,16 @@ namespace SchoolPractice
             }
             else
             return "Freshman";
+        }
+
+        public override bool Equals(object obj)
+        {
+            return obj is Student student &&
+                   StudentId == student.StudentId;
+        }
+        public override string ToString()
+        {
+            return Name + " completed " + NumberOfCredits + " credits with a GPA of " + Gpa;
         }
 
         // TODO: Add your custom 'ToString' method here. Make sure it returns a well-formatted string rather
