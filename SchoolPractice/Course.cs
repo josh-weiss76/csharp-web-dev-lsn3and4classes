@@ -48,10 +48,20 @@ namespace SchoolPractice
 
         public override bool Equals(object obj)
         {
-            return obj is Course course &&
-                   Topic == course.Topic &&
-                   EqualityComparer<Teacher>.Default.Equals(Instructor, course.Instructor) &&
-                   EqualityComparer<List<Student>>.Default.Equals(enrolledStudents, course.enrolledStudents);
+            if (obj == this)
+            {
+                return true;
+            }
+            if (obj == null)
+            {
+                return false;
+            }
+            if (obj.GetType() != GetType())
+            {
+                return false;
+            }
+            Course theCourse = obj as Course;
+            return theCourse.Instructor == Instructor && theCourse.Topic == Topic;
         }
 
         public override string ToString()

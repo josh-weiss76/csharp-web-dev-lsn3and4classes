@@ -60,15 +60,32 @@ namespace SchoolPractice
             else
             return "Freshman";
         }
-
-        public override bool Equals(object obj)
-        {
-            return obj is Student student &&
-                   StudentId == student.StudentId;
-        }
         public override string ToString()
         {
             return Name + " (Credits: " + NumberOfCredits + ", GPA: " + Gpa;
+        }
+
+        public override bool Equals(object obj)  
+        {
+            if (obj == this)
+            {
+                return true;
+            }
+​            if (obj == null)
+            {
+                return false;
+            }
+​            if (obj.GetType() != GetType())
+            {
+                return false; //
+            }
+            Student studentObj = obj as Student; 
+            return StudentId == studentObj.StudentId; 
+        }
+​
+        public override int GetHashCode()
+        {
+            return StudentId;
         }
 
         // TODO: Add your custom 'ToString' method here. Make sure it returns a well-formatted string rather
